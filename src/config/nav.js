@@ -4,11 +4,17 @@ export const nav = [
 		slug: '/',
 	},
 	{
-		title: 'Aaron Swartz',
-		slug: '/aaron-swartz',
+		title: 'Search',
+		slug: '/search',
 	},
 	{
 		title: 'About',
 		slug: '/about',
 	},
+	{
+		title: 'Aaron Swartz',
+		slug: '/aaron-swartz',
+	},
+
+
 ];
