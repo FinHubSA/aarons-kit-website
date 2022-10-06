@@ -3,9 +3,11 @@ import { Icon } from 'astro-icon';
 import {
 	Button,
 	Container,
+	YouTubeEmbedSection,
 	CtaCardSection,
 	TextSection,
 	ThreeColumnTextSection,
+	StickyTextImageSection,
 } from '@littlesticks/odyssey-theme-components';
 
 import Layout from '../layouts/Page.astro';
@@ -19,16 +21,16 @@ const seo = {
 <Layout {seo}>
 	<TextSection>
 		<h1 style="text-align:center;">
-			You can make a difference in 3 easy steps
+			Do you have JSTOR login credentials?
 		</h1>
+		<h3 style="text-align:center;">You can make a difference in 3 easy steps</h3>
 	</TextSection>
 
 	<CtaCardSection>
 		<div>
-			<h3>
-				Our command line tool makes it easy for you to donate research papers
-				while staying completely anonymous
-			</h3>
+			<h4>
+				Our command line tool makes it easy for you to donate research papers.
+			</h4>
 			<p>
 				You simply specify the research that you want to donate, and the tool
 				will access, download and upload these papers to our database
@@ -38,34 +40,36 @@ const seo = {
 				inaccessible due to expensive paywalls.
 			</p>
 		</div>
+		<Button href="/Search" customIcon>
+			Find an Article<Fragment slot="icon">
+				<Icon name="ic:baseline-chevron-right" />
+			</Fragment>
+		</Button>
 	</CtaCardSection>
+	
 
 	<ThreeColumnTextSection>
 		<div slot="column-1-body">
 			<h3>Step 1</h3>
-			<CtaCardSection>
+			<CtaCardSection background="var(--theme-surface-2)">
 				<h4>Confirm your credentials on JSTOR</h4>
 			</CtaCardSection>
 			<p>Make sure that you have valid JSTOR login credentials.</p>
 			<p>
 				You can confirm that your institution provides access by searching for
-				it on the <a
-					href="https://www.jstor.org/institutionSearch?redirectUri=%2F"
-					>JSTOR “institution search”</a
-				> page.
+				it on the JSTOR “institution search” page.
 			</p>
 			<div class="center-button">
-				<Button href="https://www.jstor.org/institutionSearch?redirectUri=%2F"
-					>Confirm Credentials</Button
-				>
+				<Button href="https://www.jstor.org/institutionSearch?redirectUri=%2F" newTab outlined>
+					Confirm Credentials
+				</Button>
 			</div>
 		</div>
 
 		<div slot="column-2-body">
 			<h3>Step 2</h3>
-			<CtaCardSection>
+			<CtaCardSection background="var(--theme-surface-2)">
 				<h4>Install the necessary dependencies</h4>
-				<!-- <Button href="https://www.google.com/chrome/?brand=YTUH&gclid=Cj0KCQjw1vSZBhDuARIsAKZlijS5X0D4ihngk_K8pr2-tWBq-QZhiw-G50Di8E9_gAzQ1HyT-Z6oO4MaAjpiEALw_wcB&gclsrc=aw.ds">Download Chrome</Button>				 -->
 			</CtaCardSection>
 			<p>
 				To run the tool, you will need Google Chrome and FFmpeg installed on
@@ -77,11 +81,13 @@ const seo = {
 			</p>
 			<div style="display:flex;">
 				<div class="dependencies-buttons">
-					<Button href="https://www.google.com/chrome/">Download Chrome</Button>
+					<Button href="https://www.google.com/chrome/" newTab outlined>
+						Download Chrome
+					</Button>
 				</div>
 				<div style="width: 10%;"></div>
 				<div class="dependencies-buttons">
-					<Button href="https://ffmpeg.org/download.html">
+					<Button href="https://ffmpeg.org/download.html" newTab outlined>
 						Download FFmpeg
 					</Button>
 				</div>
@@ -90,7 +96,7 @@ const seo = {
 
 		<div slot="column-3-body">
 			<h3>Step 3</h3>
-			<CtaCardSection>
+			<CtaCardSection background="var(--theme-surface-2)">
 				<h4>Download the executable and get started</h4>
 			</CtaCardSection>
 			<p>
@@ -101,18 +107,26 @@ const seo = {
 				that will assist you in finding the articles that you want to donate.
 			</p>
 			<div class="center-button">
-				<Button href="https://github.com/FinHubSA/AK-PDF-Scraper">
-					Download the tool
+				<Button href="https://github.com/FinHubSA/AK-PDF-Scraper" newTab outlined>
+					Download Executable
 				</Button>
 			</div>
 		</div>
 	</ThreeColumnTextSection>
+
+	<TextSection>
+		<h2 style="text-align:center;">Learn how to use our tool</h2>
+		<YouTubeEmbedSection url="https://www.youtube.com/watch?v=-OhyBJxg9RA"></YouTubeEmbedSection>
+	</TextSection>
+
+
+
 </Layout>
 
 <style>
 	.center-button {
 		margin: auto;
-		width: 50%;
+		width: 45%;
 	}
 
 	.dependencies-buttons {

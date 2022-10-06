@@ -4,7 +4,7 @@ export const nav = [
 		slug: '/',
 	},
 	{
-		title: 'Search',
+		title: 'Re-Search',
 		slug: '/search',
 	},
 	{
