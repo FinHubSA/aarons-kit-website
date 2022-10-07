@@ -15,6 +15,4 @@ export const nav = [
 		title: 'Aaron Swartz',
 		slug: '/aaron-swartz',
 	},
-
-
 ];
