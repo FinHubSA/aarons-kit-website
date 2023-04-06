@@ -1,7 +1,7 @@
 export const footerSocials = [
 	{
 		name: 'Github',
-		url: 'https://github.com/FinHubSA/AK-PDF-Scraper/tree/bulk_downloads',
+		url: 'https://github.com/FinHubSA/AK-PDF-Scraper',
 		icon: 'mdi:github',
 	},
 ];
