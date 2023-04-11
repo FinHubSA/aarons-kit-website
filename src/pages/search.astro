@@ -35,7 +35,8 @@
 		const response = await fetch(api);
 
 		if (response.status === 200) {
-			articles = await response.json();
+			var result = await response.json();
+			articles = result["data"]
 		}
 	}
 ---
