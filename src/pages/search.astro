@@ -30,6 +30,7 @@
 	console.log(" ** params ** ", category + " " + query + " " + api);
 
 	var articles = []
+	var total_pages = 1
 
 	if (query) {
 		const response = await fetch(api);
@@ -37,13 +38,14 @@
 		if (response.status === 200) {
 			var result = await response.json();
 			articles = result["data"]
+			total_pages = result["total_pages"]
 		}
 	}
 ---
 
 <Layout {seo}>
 	<div class='outer__search__container'>
-		<SearchBar category={category} query={query} page={page}></SearchBar>
+		<SearchBar category={category} query={query} page={page} total_pages={total_pages}></SearchBar>
 
 		<Container narrow={true}>
 			{query &&
