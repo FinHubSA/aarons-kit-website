@@ -1,0 +1,182 @@
+diff --git a/node_modules/@littlesticks/odyssey-theme-components/buttons/Button.astro b/node_modules/@littlesticks/odyssey-theme-components/buttons/Button.astro
+index bd9f362..a9ec1eb 100644
+--- a/node_modules/@littlesticks/odyssey-theme-components/buttons/Button.astro
++++ b/node_modules/@littlesticks/odyssey-theme-components/buttons/Button.astro
+@@ -19,9 +19,10 @@ const Tag = href ? 'a' : 'button';
+ 
+ <style>
+   .btn {
+-    width: fit-content;
++    width: 160px;
+     padding: 0.36rem 0.92rem;
+     margin-bottom: 0;
++    margin-right: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+@@ -70,4 +71,14 @@ const Tag = href ? 'a' : 'button';
+     cursor: pointer;
+     outline: none;
+   }
++  @media screen and (max-width: 768px) {
++    .btn{
++      width: 140px;  
++    }
++  }
++  @media screen and (max-width: 360px) {
++    .btn{
++      width: 130px;  
++    }
++  }
+ </style>
+diff --git a/node_modules/@littlesticks/odyssey-theme-components/core/Footer.astro b/node_modules/@littlesticks/odyssey-theme-components/core/Footer.astro
+index 07da3aa..91b7f26 100644
+--- a/node_modules/@littlesticks/odyssey-theme-components/core/Footer.astro
++++ b/node_modules/@littlesticks/odyssey-theme-components/core/Footer.astro
+@@ -27,13 +27,14 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+                   class="footer-socials__link"
+                   title={`Open ${social.name} profile`}
+                 >
+-                  <Icon name={social.icon} width="24px" height="24px" />
++                  <Icon name={social.icon} width="48px" height="48px" />
+                 </a>
+               </li>
+             ))
+           }
+         </ul>
+       </div>
++      <!-- OG code
+       {
+         footerLists.map((list) => (
+           <div>
+@@ -47,7 +48,40 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+             </ul>
+           </div>
+         ))
+-      }
++      }-->
++      <div class="footer-links__container">
++        {
++          footerLists.map((list) => (
++            <div>
++              <p><strong>{list.title} </strong></p>
++              <ul class="footer-link__list">
++                {list.items.map((item) => (
++                  <li>
++                    <a href={item.slug}>{item.title}</a>
++                  </li>
++                ))}
++              </ul>
++            </div>
++          ))
++        }
++      </div>
++
++      <div class="footer-links__container__alt">
++          <div>
++            <p><strong>{footerLists[0].title} </strong></p>
++            {
++            footerLists.map((list) => (
++              <ul class="footer-link__list">
++                {list.items.map((item) => (
++                  <li>
++                    <a href={item.slug}>{item.title}</a>
++                  </li>
++                ))}
++              </ul>
++            ))
++            }
++          </div>
++      </div>
+     </div>
+     <div class="footer-copyright__container">
+       <p>Copyright &copy; {new Date().getFullYear()} {copyrightName}</p>
+@@ -68,10 +102,19 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+     border-top-right-radius: var(--theme-shape-radius);
+   }
+   .footer-grid__container {
+-    padding: 10vh 0 1rem 0;
++    padding: 10vh 0 0 0;
++    display: grid;
++    grid-template-columns: 2fr 4fr ;
++  }
++  .footer-links__container{
+     display: grid;
+-    grid-template-columns: 2fr 1fr 1fr 1fr;
++    grid-template-columns: 1fr 1fr 1fr;
+   }
++
++  .footer-links__container__alt{
++    display: none;
++  }
++
+   .footer-socials__list {
+     margin: 1rem 0;
+     padding: 0;
+@@ -91,6 +134,7 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+   }
+   .footer-link__list li a {
+     text-decoration: none;
++    white-space: nowrap;
+   }
+   .footer-link__list li a:hover {
+     opacity: 0.84;
+@@ -102,15 +146,29 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+   .footer-copyright__container p {
+     font-size: var(--font-size-sm);
+   }
++  .footer-links__container div p:nth-of-type(2){
++      background-color: #900;
++  }
+   @media (max-width: 768px) {
++    /*commented out code*/
++    /*
+     .footer-grid__container :first-child {
+       grid-column: 1/-1;
++    }*/
++    /*edited*/
++    .footer-links__container__alt{
++      display: none;
+     }
+     .footer-grid__container {
+       padding: 5vh 0;
+-      grid-template-columns: repeat(2, 1fr);
++      grid-template-columns: 2fr 3fr;
+       gap: 1rem;
+     }
++    /*code add*/
++    .footer-links__container{
++      display: grid;
++      /*flex-direction: column;*/
++    }
+   }
+   @media (max-width: 600px) {
+     .footer-grid__container {
+@@ -121,5 +179,14 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+     .footer-copyright__container {
+       flex-direction: column;
+     }
++    /*code add*/
++    .footer-links__container{
++      display: none;
++      flex-direction: column;
++    }
++    .footer-links__container__alt{
++      display: flex;
++      flex-direction: column;
++    }
+   }
+ </style>
+diff --git a/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro b/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro
+index 48eedf4..0d64f21 100644
+--- a/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro
++++ b/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro
+@@ -128,7 +128,7 @@ const { navData, rightMenu } = Astro.props;
+   nav ul li a:hover {
+     opacity: 1;
+   }
+-  @media(max-width: 600px) {
++  @media(max-width: 768px) {
+     #menuButton {
+       display: block;  
+       z-index: 100;
