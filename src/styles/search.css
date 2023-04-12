@@ -12,7 +12,7 @@
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-pack: center;
-		justify-content: center;
+	justify-content: center;
 	font-family: 'Poppins', sans-serif;
 	background: url("../images/Search_131.png");
 	background-size: cover;
@@ -34,6 +34,7 @@
 	padding:20px;
     display: flex;
     align-items: center;
+	column-gap: 10px;
   }
   
   .search-container form .inner-form .input-field {
@@ -62,13 +63,12 @@
   }
   
   .search-container form .inner-form .input-field.first-wrap {
-	margin: 5px;
 	-ms-flex-positive: 1;
 		flex-grow: 1;
+		min-width: 140px;
   }
   
   .search-container form .inner-form .input-field.second-wrap {
-	margin: 5px;
 	min-width: 420px;
   }
   
@@ -133,8 +133,8 @@
   }
   
   .search-container form .inner-form .input-field.third-wrap {
-	margin: 5px;
-	width: 164px;
+	display:flex;
+	width: 160px;
   }
   
   .search-container form .inner-form .input-field.third-wrap .btn-search {
@@ -184,23 +184,20 @@
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23999' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z'/%3e%3c/svg%3e");
   }
   
-  @media screen and (max-width: 992px) {
-	.search-container form .inner-form .input-field {
-	  height: 60px;
+  @media screen and (max-width: 900px) {
+	.search-container {
+		padding: 15px 0px;
 	}
-  }
-  
-  @media screen and (max-width: 767px) {
 	.search-container form .inner-form {
 	  -ms-flex-wrap: wrap;
-		  flex-wrap: wrap;
-	  padding: 20px;
+	  flex-wrap: wrap;
+	  padding: 20px 0;
 	}
 	.search-container form .inner-form .input-field {
 	  margin-bottom: 20px;
 	}
 	.search-container form .inner-form .input-field input {
-	  padding: 10px 15px;
+	  padding: 0.36rem 0.92rem;
 	}
 	.search-container form .inner-form .input-field.first-wrap,
 	.search-container form .inner-form .input-field.second-wrap {

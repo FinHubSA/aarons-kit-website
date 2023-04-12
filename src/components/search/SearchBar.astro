@@ -1,6 +1,6 @@
 ---
     import { Icon } from 'astro-icon';
-
+    import AdjustableButton from '../widgets/adjustable-button.astro';
     import {
         Container,
         Button,
@@ -20,7 +20,6 @@
     <div class="search-container">
         <form id='search-form' action='/search' method='GET' onsubmit='return beforeSubmit(event, this);'>
             <div class='inner-form'>
-
                 <div class='input-field first-wrap'>
                     <div class="form-field__container">
                         <select name='category' required>
@@ -47,7 +46,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class='input-field second-wrap'>
                     <div class="form-field__container">
                         <input type='text' value={query} name='query'
@@ -56,36 +54,36 @@
                 </div>
 
                 <div class='input-field third-wrap'>
-                    <Button customIcon>
+                    <AdjustableButton class="btn-search" customIcon>
                         Search
                         <Fragment slot="icon">
                             <Icon name="ic:baseline-search" />
                         </Fragment>
-                    </Button>
+                    </AdjustableButton>
                 </div>
             </div>
             <div class='inner-form'>
                 <input name="current-page" type='number' value={page} hidden disabled />
                 {
                 parseInt(page) > 1 &&
-                <button class="btn astro-5VNEE24L" target="" rel="">
+                <button class="btn astro-5VNEE24L left" target="" rel="">
                     <span class="custom-icon__span astro-5VNEE24L">
                         <svg viewBox="0 0 24 24" class="astro-Z6IVC36F" astro-icon="ic:baseline-chevron-left">
                             <path fill="currentColor" d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                         </svg>
                     </span>
-                    Previous
+                    <span class="btn-text-pagination">Previous</span>
                 </button>
                 }
                 {
                 parseInt(page) == 1 &&
-                <button class="btn astro-5VNEE24L disabled" target="" rel="" disabled>
+                <button class="btn astro-5VNEE24L left disabled" target="" rel="" disabled>
                     <span class="custom-icon__span astro-5VNEE24L">
                         <svg viewBox="0 0 24 24" class="astro-Z6IVC36F" astro-icon="ic:baseline-chevron-left">
                             <path fill="currentColor" d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                         </svg>
                     </span>
-                    Previous
+                    <span class="btn-text-pagination">Previous</span>
                 </button>
                 }
                 {
@@ -95,7 +93,7 @@
                     / {total_pages}</span>
                 :
                 <span style='display:none'>Page <input class='input__page' type='number' value={page} name='page'
-                        min='1' max={total_pages} required />
+                        max={total_pages} required />
                     / {total_pages}</span>
                 }
                 {
@@ -168,10 +166,10 @@
     .form-field__container input[type="date"],
     .form-field__container input[type="tel"] {
         width: 100%;
-        padding: 0.5rem;
+        padding: 0.36rem 0.92rem;
         border: 2px solid var(--form-field-border-color, #ccc);
         color: var(--form-field-input-color, #000000);
-        border-radius: var(--form-field-border-radius, 0.25rem);
+        border-radius: var(--form-field-border-radius, 3rem);
         outline-style: none;
     }
 
@@ -181,10 +179,10 @@
 
     .form-field__container select {
         width: 100%;
-        padding: 0.5rem;
+        padding: 0.36rem 0.92rem;
         border: 2px solid var(--form-field-border-color, #ccc);
         color: var(--form-field-input-color, #000000);
-        border-radius: var(--form-field-border-radius, 0.25rem);
+        border-radius: var(--form-field-border-radius, 3rem);
         outline-style: none;
         font-size: 1rem;
         font-family: inherit;
@@ -194,6 +192,16 @@
 
     .form-field__container select:focus {
         border: 2px solid var(--form-field-border-focus-color, #000);
+    }
+
+    .input-field second-wrap {
+        display: flex;
+        width: 100%;
+    }
+
+    .btn.astro-5VNEE24L {
+        width: 160px;
+        margin: 0;
     }
 
     .icon-left {
@@ -213,8 +221,34 @@
         margin-left: auto;
         margin-right: auto;
         width: 15%;
+        min-width: 100px;
         height: auto;
         padding-bottom: 60px;
+        padding-top: 60px;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .btn.astro-5VNEE24L.right,
+        .btn.astro-5VNEE24L.left {
+            width: 140px
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .btn-text-pagination {
+            display: none
+        }
+
+        .btn.astro-5VNEE24L.right,
+        .btn.astro-5VNEE24L.left {
+            width: 60px
+        }
+
+        .btn.astro-5VNEE24L.right .custom-icon__span.astro-5VNEE24L,
+        .btn.astro-5VNEE24L.left .custom-icon__span.astro-5VNEE24L {
+            margin: 0;
+        }
     }
 
     .input__page {
