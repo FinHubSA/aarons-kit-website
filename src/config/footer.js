@@ -19,6 +19,15 @@ export const footerLists = [
 				slug: '/search',
 			},
 			{
+				title: 'Get Started',
+				slug: '/get-started',
+			},
+		],
+	},
+	{
+		title: 'About',
+		items: [
+			{
 				title: 'About Us',
 				slug: '/about',
 			},
@@ -26,14 +35,16 @@ export const footerLists = [
 				title: 'Aaron Swartz',
 				slug: '/aaron-swartz',
 			},
+		],
+	},
+	{
+		title: 'Donate',
+		items: [
 			{
 				title: 'Donate',
 				slug: '/donate',
 			},
-			{
-				title: 'Get Started',
-				slug: '/get-started',
-			},
 		],
 	},
+	
 ];

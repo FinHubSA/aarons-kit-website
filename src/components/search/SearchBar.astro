@@ -24,7 +24,6 @@ const {category, query, page} = Astro.props;
     <div class="search-container">
         <form id='search-form' action='/search' method='GET' onsubmit='return beforeSubmit(event, this);'>
             <div class='inner-form'>
-
                 <div class='input-field first-wrap'>
                     <div class="form-field__container">
                         <select name='category' required>
@@ -51,7 +50,6 @@ const {category, query, page} = Astro.props;
                         </select>
                     </div>
                 </div>
-
                 <div class='input-field second-wrap'>
                     <div class="form-field__container">
                         <input 
@@ -65,7 +63,7 @@ const {category, query, page} = Astro.props;
                 </div>
                 
                 <div class='input-field third-wrap'>
-                    <Button customIcon>
+                    <Button class="btn-search" customIcon>
                         Search
                         <Fragment slot="icon">
                             <Icon name="ic:baseline-search" />
@@ -81,24 +79,24 @@ const {category, query, page} = Astro.props;
                 />
                 {
                     parseInt(page) > 1 &&
-                        <button class="btn astro-5VNEE24L" target="" rel="">
+                        <button class="btn astro-5VNEE24L left" target="" rel="">
                             <span class="custom-icon__span astro-5VNEE24L">
                                 <svg viewBox="0 0 24 24" class="astro-Z6IVC36F" astro-icon="ic:baseline-chevron-left">
                                     <path fill="currentColor" d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                                 </svg>
                             </span>
-                            Previous
+                            <span class= "btn-text-pagination">Previous</span>
                         </button>
                 }
                 {
                     parseInt(page) == 1 &&
-                        <button class="btn astro-5VNEE24L disabled" target="" rel="" disabled>
+                        <button class="btn astro-5VNEE24L disabled left" target="" rel="" disabled>
                             <span class="custom-icon__span astro-5VNEE24L">
                                 <svg viewBox="0 0 24 24" class="astro-Z6IVC36F" astro-icon="ic:baseline-chevron-left">
                                     <path fill="currentColor" d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                                 </svg>
                             </span>
-                            Previous
+                            <span class= "btn-text-pagination">Previous</span>
                         </button>
                 }
                 {
@@ -106,8 +104,8 @@ const {category, query, page} = Astro.props;
                 }
                 {
                     parseInt(page) > 0 &&
-                        <button class="btn astro-5VNEE24L" target="" rel="">
-                            Next
+                        <button class="btn astro-5VNEE24L right" target="" rel="">
+                            <span class= "btn-text-pagination">Next</span>
                             <span class="custom-icon__span astro-5VNEE24L">
                                 <svg viewBox="0 0 24 24" class="astro-ZARP2IE3" astro-icon="ic:baseline-chevron-right">
                                     <path fill="currentColor" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
@@ -160,10 +158,10 @@ const {category, query, page} = Astro.props;
     .form-field__container input[type="date"],
     .form-field__container input[type="tel"] {
         width: 100%;
-        padding: 0.5rem;
+        padding: 0.36rem 0.92rem;
         border: 2px solid var(--form-field-border-color, #ccc);
         color: var(--form-field-input-color, #000000);
-        border-radius: var(--form-field-border-radius, 0.25rem);
+        border-radius: var(--form-field-border-radius, 3rem);
         outline-style: none;
     }
 
@@ -173,10 +171,10 @@ const {category, query, page} = Astro.props;
 
     .form-field__container select {
         width: 100%;
-        padding: 0.5rem;
+        padding: 0.36rem 0.92rem;
         border: 2px solid var(--form-field-border-color, #ccc);
         color: var(--form-field-input-color, #000000);
-        border-radius: var(--form-field-border-radius, 0.25rem);
+        border-radius: var(--form-field-border-radius, 3rem);
         outline-style: none;
         font-size: 1rem;
         font-family: inherit;
@@ -191,7 +189,15 @@ const {category, query, page} = Astro.props;
     .search__nav input{
         display: none;
     }
-
+    .input-field second-wrap{
+        display: flex;
+        width: 100%;
+    }
+    .btn.astro-5VNEE24L {
+        width: 160px;
+        margin:0;
+    }
+    
     .icon-left{
         float: left;
     }
@@ -209,7 +215,20 @@ const {category, query, page} = Astro.props;
         margin-left: auto;
         margin-right: auto;
         width: 15%;
+        min-width: 100px;
         height: auto;
         padding-bottom: 60px;
+        padding-top: 60px;
+    }
+    @media screen and (max-width: 500px) {
+        .btn-text-pagination {
+            display:none
+        }
+        .btn.astro-5VNEE24L.right, .btn.astro-5VNEE24L.left{
+            width: 60px
+        }
+        .btn.astro-5VNEE24L.right .custom-icon__span.astro-5VNEE24L, .btn.astro-5VNEE24L.left .custom-icon__span.astro-5VNEE24L{
+            margin:0;
+        }
     }
 </style>
