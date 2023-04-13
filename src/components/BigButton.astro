@@ -6,21 +6,22 @@ const Tag = href ? 'a' : 'button';
 ---
 
 <Tag
-  class={`btn2 ${unelevated && `btn2--unelevated`} ${
-    outlined && `btn2--outlined`
-  } ${onPrimary && `btn2--on-primary`}`}
-  href={href}
-  target={`${newTab ? '_blank': ``}`}
-  rel={`${newTab ? 'noopener noreferrer' : ``}`}
->
-  <slot />
-  {customIcon && <span class="custom-icon__span"><slot name="icon">custom_icon</slot></span>}
+    class={`btn2 ${unelevated && `btn2--unelevated`} ${
+        outlined && `btn2--outlined`
+    } ${onPrimary && `btn2--on-primary`}`}
+    href={href}
+    target={`${newTab ? '_blank': ``}`}
+    rel={`${newTab ? 'noopener noreferrer' : ``}`}
+    >
+    <slot />
+    {customIcon && <span class="custom-icon__span"><slot name="icon">custom_icon</slot></span>}
 </Tag>
 
 <style>
   .btn2 {
-    width: 160px;
-    padding: 0.36rem 0.92rem;
+    width: 170px;
+    height: 64px;
+    padding: 0.36rem 0.36rem;
     margin-bottom: 0;
     margin-right: 0;
     display: flex;
@@ -71,14 +72,12 @@ const Tag = href ? 'a' : 'button';
     cursor: pointer;
     outline: none;
   }
-  @media screen and (max-width: 768px) {
-    .btn2{
-      width: 140px;  
+  @media screen and (max-width: 900px) {
+    .btn2 {
+        width: 165px;
     }
-  }
   @media screen and (max-width: 360px) {
-    .btn2{
-      width: 130px;  
+    .btn2 {
+        width: 145px;
     }
-  }
 </style>
