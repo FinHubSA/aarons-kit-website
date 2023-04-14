@@ -11,10 +11,10 @@ index bd9f362..5f7cf8d 100644
      align-items: center;
      justify-content: center;
 diff --git a/node_modules/@littlesticks/odyssey-theme-components/core/Footer.astro b/node_modules/@littlesticks/odyssey-theme-components/core/Footer.astro
-index 07da3aa..c87e8ce 100644
+index 07da3aa..4572689 100644
 --- a/node_modules/@littlesticks/odyssey-theme-components/core/Footer.astro
 +++ b/node_modules/@littlesticks/odyssey-theme-components/core/Footer.astro
-@@ -27,7 +27,7 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+@@ -27,27 +27,46 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
                    class="footer-socials__link"
                    title={`Open ${social.name} profile`}
                  >
@@ -23,12 +23,11 @@ index 07da3aa..c87e8ce 100644
                  </a>
                </li>
              ))
-@@ -47,7 +47,40 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
-             </ul>
-           </div>
-         ))
--      }
-+      }-->
+           }
+         </ul>
+       </div>
+-      {
+-        footerLists.map((list) => (
 +      <div class="footer-links__container">
 +        {
 +          footerLists.map((list) => (
@@ -47,7 +46,15 @@ index 07da3aa..c87e8ce 100644
 +      </div>
 +
 +      <div class="footer-links__container__alt">
-+          <div>
+           <div>
+-            <p><strong>{list.title}</strong></p>
+-            <ul class="footer-link__list">
+-              {list.items.map((item) => (
+-                <li>
+-                  <a href={item.slug}>{item.title}</a>
+-                </li>
+-              ))}
+-            </ul>
 +            <p><strong>{footerLists[0].title} </strong></p>
 +            {
 +            footerLists.map((list) => (
@@ -60,34 +67,36 @@ index 07da3aa..c87e8ce 100644
 +              </ul>
 +            ))
 +            }
-+          </div>
+           </div>
+-        ))
+-      }
 +      </div>
      </div>
      <div class="footer-copyright__container">
        <p>Copyright &copy; {new Date().getFullYear()} {copyrightName}</p>
-@@ -68,10 +101,19 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+@@ -68,10 +87,19 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
      border-top-right-radius: var(--theme-shape-radius);
    }
    .footer-grid__container {
 -    padding: 10vh 0 1rem 0;
 +    padding: 10vh 0 0 0;
-+    display: grid;
+     display: grid;
+-    grid-template-columns: 2fr 1fr 1fr 1fr;
 +    grid-template-columns: 2fr 4fr ;
 +  }
 +  .footer-links__container{
-     display: grid;
--    grid-template-columns: 2fr 1fr 1fr 1fr;
++    display: grid;
 +    grid-template-columns: 1fr 1fr 1fr;
-   }
++  }
 +
 +  .footer-links__container__alt{
 +    display: none;
-+  }
+   }
 +
    .footer-socials__list {
      margin: 1rem 0;
      padding: 0;
-@@ -91,6 +133,7 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+@@ -91,6 +119,7 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
    }
    .footer-link__list li a {
      text-decoration: none;
@@ -95,7 +104,7 @@ index 07da3aa..c87e8ce 100644
    }
    .footer-link__list li a:hover {
      opacity: 0.84;
-@@ -102,15 +145,29 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+@@ -102,15 +131,29 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
    .footer-copyright__container p {
      font-size: var(--font-size-sm);
    }
@@ -126,7 +135,7 @@ index 07da3aa..c87e8ce 100644
    }
    @media (max-width: 600px) {
      .footer-grid__container {
-@@ -121,5 +178,14 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
+@@ -121,5 +164,14 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
      .footer-copyright__container {
        flex-direction: column;
      }
@@ -142,15 +151,64 @@ index 07da3aa..c87e8ce 100644
    }
  </style>
 diff --git a/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro b/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro
-index 48eedf4..0d64f21 100644
+index 48eedf4..039ab6b 100644
 --- a/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro
 +++ b/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro
+@@ -74,7 +74,7 @@ const { navData, rightMenu } = Astro.props;
+ <style>
+   header {
+     width: 100%;
+-    padding: 1rem 0.5rem;
++    padding: 1rem 1rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
 @@ -128,7 +128,7 @@ const { navData, rightMenu } = Astro.props;
    nav ul li a:hover {
      opacity: 1;
    }
 -  @media(max-width: 600px) {
-+  @media(max-width: 768px) {
++  @media(max-width: 900px) {
      #menuButton {
        display: block;  
        z-index: 100;
+@@ -157,4 +157,11 @@ const { navData, rightMenu } = Astro.props;
+        margin-bottom: 1rem;
+      }
+   }
++  @media(max-width: 360px) {
++    #menuButton {
++      margin-right: 0.05rem;
++      margin-left: -0.3rem;
++      padding-left: 0;
++    }
++  }
+ </style>
+\ No newline at end of file
+diff --git a/node_modules/@littlesticks/odyssey-theme-components/sections/ThreeColumnTextSection.astro b/node_modules/@littlesticks/odyssey-theme-components/sections/ThreeColumnTextSection.astro
+index 17c1a43..af80a62 100644
+--- a/node_modules/@littlesticks/odyssey-theme-components/sections/ThreeColumnTextSection.astro
++++ b/node_modules/@littlesticks/odyssey-theme-components/sections/ThreeColumnTextSection.astro
+@@ -39,14 +39,19 @@ import Container from '../core/Container.astro';
+     align-items: center;
+   }
+ 
+-  @media(max-width: 1200px) {
++  @media(max-width: 1080px) {
+     .three-col-text__section {
+-      --column-count: 2;
++      --column-count: 1;
++      --column-width: 70%;
++      flex-direction: column;
++      align-items: center;
+     }
+   }
+   @media(max-width: 768px) {
+     .three-col-text__section {
+       --column-count: 1;
++      --column-width: calc(100% / var(--column-count));
++      min-width: 280px;
+     }
+   }
+ </style>
+\ No newline at end of file

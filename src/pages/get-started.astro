@@ -6,9 +6,11 @@ import {
 	CtaCardSection,
 	TextSection,
 	ThreeColumnTextSection,
+	YouTubeEmbed
 } from '@littlesticks/odyssey-theme-components';
 import Layout from '../layouts/Page.astro';
-
+import BigButton from '../components/widgets/BigButton.astro';
+import SmallCard from '../components/widgets/small-card.astro';
 const seo = {
 	title: "Aaron's Kit | Get Started",
 	description: 'Learn how to download and use our tool.',
@@ -52,67 +54,72 @@ const seo = {
 	
 
 	<ThreeColumnTextSection>
-		<div slot="column-1-body">
+		<div class="column-slot" slot="column-1-body">
 			<h3>Step 1</h3>
-			<CtaCardSection background="var(--theme-surface-2)">
+			<SmallCard background="var(--theme-surface-2)">
 				<h4>Confirm your credentials on JSTOR</h4>
-			</CtaCardSection>
-			<p>Make sure that you have valid JSTOR login credentials.</p>
-			<p>
-				You can confirm that your institution provides access by searching for
-				it on the JSTOR “institution search” page.
-			</p>
-			<div class="center-button">
-				<Button href="https://www.jstor.org/institutionSearch?redirectUri=%2F" newTab outlined>
+			</SmallCard>
+			<div class="card-info">
+				<p>Make sure that you have valid JSTOR login credentials.</p>
+				<p>
+					You can confirm that your institution provides access by searching for
+					it on the JSTOR “institution search” page.
+				</p>
+			</div>
+			<div class="button-holder">
+				<BigButton href="https://www.jstor.org/institutionSearch?redirectUri=%2F" newTab outlined>
 					Confirm Credentials
-				</Button>
+				</BigButton>
 			</div>
 		</div>
 
-		<div slot="column-2-body">
+		<div class="column-slot" slot="column-2-body">
 			<h3>Step 2</h3>
-			<CtaCardSection background="var(--theme-surface-2)">
+			<SmallCard background="var(--theme-surface-2)">
 				<h4>Install the necessary dependencies</h4>
-			</CtaCardSection>
-			<p>
-				To run the tool, you will need Google Chrome, ffmpeg and ffprobe installed on
-				your computer.
-			</p>
-			<p>
-				If you don't have them installed, visit the Google Chrome and ffmpeg
-				downloads pages to install before moving on to the next step. 
-			</p>
-			<div style="display:flex;">
+			</SmallCard>
+			<div class="card-info">
+				<p>
+					To run the tool, you will need Google Chrome, ffmpeg and ffprobe installed on
+					your computer.
+				</p>
+				<p>
+					If you don't have them installed, visit the Google Chrome and ffmpeg
+					downloads pages to install before moving on to the next step. 
+				</p>
+			</div>
+			<div class="button-holder">
 				<div class="dependencies-buttons">
-					<Button href="https://www.google.com/chrome/" newTab outlined>
+					<BigButton href="https://www.google.com/chrome/" newTab outlined>
 						Download Chrome
-					</Button>
+					</BigButton>
 				</div>
-				<div style="width: 10%;"></div>
 				<div class="dependencies-buttons">
-					<Button href="https://ffmpeg.org/download.html" newTab outlined>
+					<BigButton href="https://ffmpeg.org/download.html" newTab outlined>
 						Download ffmpeg/ffprobe
-					</Button>
+					</BigButton>
 				</div>
 			</div>
 		</div>
 
-		<div slot="column-3-body">
+		<div class="column-slot" slot="column-3-body">
 			<h3>Step 3</h3>
-			<CtaCardSection background="var(--theme-surface-2)">
+			<SmallCard background="var(--theme-surface-2)">
 				<h4>Download the executable and get started</h4>
-			</CtaCardSection>
-			<p>
-				Visit our GitHub repository and download the Aaron’s Kit Executable.
-			</p>
-			<p>
-				Double click on the executable to open and simply follow the prompts
-				that will assist you in finding the articles that you want to donate.
-			</p>
-			<div class="center-button">
-				<Button href="https://github.com/FinHubSA/AK-PDF-Scraper" newTab outlined>
+			</SmallCard>
+			<div class="card-info">
+				<p>
+					Visit our GitHub repository and download the Aaron’s Kit Executable.
+				</p>
+				<p>
+					Double click on the executable to open and simply follow the prompts
+					that will assist you in finding the articles that you want to donate.
+				</p>
+			</div>
+			<div class="button-holder">
+				<BigButton href="https://github.com/FinHubSA/AK-PDF-Scraper" newTab outlined>
 					Download Executable
-				</Button>
+				</BigButton>
 			</div>
 		</div>
 	</ThreeColumnTextSection>
@@ -124,7 +131,7 @@ const seo = {
 			contributed research papers to the Aaron's Kit database.
 		</h4>
 		
-		<ul style="text-align:left;"> 
+		<ul class="list-explanation"> 
 			<p style="text-align:center;"><u><b>How does this work?</b></u></p>
 			<li>
 				During <b>step 3</b>, upon launching the executable, you will be given the choice to opt
@@ -139,7 +146,7 @@ const seo = {
 			</li>			
 		</ul>
 		<br>
-		<div class="center-button-2">
+		<div class="button-holder">
 			<Button href="/donate" customIcon>
 				Learn more<Fragment slot="icon">
 					<Icon name="ic:baseline-chevron-right" />
@@ -150,9 +157,10 @@ const seo = {
 
 	<TextSection>
 		<h2 style="text-align:center;">Learn how to set up and use our tool</h2>
-		<YouTubeEmbedSection rounded url="https://youtu.be/OQ3ZdmHy-Ds"></YouTubeEmbedSection>
-		
-		<div style="text-align:justify" class="margin-p">
+		<section class="youtube-embed__section">
+			<YouTubeEmbed url="https://youtu.be/OQ3ZdmHy-Ds" rounded />
+		</section>
+		<div style="text-align:justify;" class="margin-p">
 			<p>
 				<b>Video highlights</b> 
 			</p>
@@ -164,23 +172,23 @@ const seo = {
 				<b>Contents</b>
 			</p>
 			<p>
-				<ul>🖇️ 0:00 - Introduction</ul>
-				<ul>🖇️ 0:31 - Upload research papers</ul>
-				<ul>🖇️ 05:47 - Download research papers</ul>		
+				<ul>
+					<li class="clip-tag">00:00 - Introduction</li>
+					<li class="clip-tag">00:31 - Upload research papers</li>
+					<li class="clip-tag">05:47 - Download research papers</li>
+				</ul>
 			</p>
 			<p>
 				<b>Useful links</b>				
 			</p>
 			<p>
-				<ul>🔗 <a href="https://github.com/FinHubSA/AK-PDF-Scraper" class="astro-426S6YDN" target="_blank">Download Aaron's Kit</a> to get started</ul>
-				<ul>🔗 Watch our setup video and learn how to download and set up Aaron's Kit on Windows or Mac.</ul>
-				<ul>🔗 <a href="/donate" class="astro-426S6YDN">Visit our donations page</a> to learn about Algo donations</ul>
+				<ul>
+					<li class="link-tag"><a href="https://github.com/FinHubSA/AK-PDF-Scraper" class="astro-426S6YDN" target="_blank">Download Aaron's Kit</a> to get started</li>
+					<li class="link-tag">Watch our setup video and learn how to download and set up Aaron's Kit on Windows or Mac.</li>
+					<li class="link-tag"><a href="/donate" class="astro-426S6YDN">Visit our donations page</a> to learn about Algo donations</li>
+				</ul>
 			</p>
 		</div>
-
-		
-
-		
 	</TextSection>
 
 	<TextSection>
@@ -192,18 +200,64 @@ const seo = {
 </Layout>
 
 <style>
-	.center-button {
-		margin: auto;
-		width: 45%;
+	.button-holder {
+		display: flex;
+		flex-grow: 1;
+		flex-direction: row;
+		column-gap: 10px;
+		align-items: flex-end;
+		justify-content: space-evenly;
 	}
-	.center-button-2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+	.card-info {
+		min-width: 284px;
+		padding-left: 18px;
+		padding-right: 18px;
+	}
 	.margin-p {
 		margin-right: 2%;
   		margin-left: 2%;
 	}
+	.column-slot {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		align-items: center;
+		min-width: 300px;
+	}
+	.list-explanation {
+		text-align:left;
+	}
 
+	.youtube-embed__section {
+		padding: 0 1rem;
+		margin: var(--section-margin) auto;
+	}
+	.clip-tag {
+		list-style-type: '🖇️';
+		padding-inline-start: 0.5rem;
+	}
+	.link-tag {
+		list-style-type: '🔗';
+		padding-inline-start: 0.5rem;
+	}
+	ul {
+		text-align: start;
+	}
+	@media screen and (max-width: 768px) {
+		.list-explanation {
+			margin-left: -20px;
+		}
+		.youtube-embed__section {
+			padding: 0;
+		}
+	}
+	@media screen and (max-width: 360px) {
+		.button-holder {
+			column-gap: 6px;
+		}
+		.list-explanation {
+			margin-left: -20px;
+			margin-right: 0px;
+		}
+	}
 </style>

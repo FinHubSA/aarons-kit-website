@@ -1,14 +1,14 @@
 ---
-	import { Header, Button, Footer } from '@littlesticks/odyssey-theme-components';
-	import Layout from './Base.astro';
-	import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
-	import Logo from '../components/widgets/Logo.astro';
-	import settings from '../config/settings';
-	import { footerLists, footerSocials } from '../config/footer';
-
-	export interface Props {
-		seo?: BaseHeadProps;
-	}
+import { Header, Button, Footer } from '@littlesticks/odyssey-theme-components';
+import Layout from './Base.astro';
+import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
+import Logo from '../components/widgets/Logo.astro';
+import settings from '../config/settings';
+import { footerLists, footerSocials } from '../config/footer';
+import AdjustableButton from '../components/widgets/adjustable-button.astro';
+export interface Props {
+	seo?: BaseHeadProps;
+}
 
 	import { nav } from '../config/nav.js';
 	import Icon from 'astro-icon';
@@ -25,7 +25,7 @@
 			<a class="github" href="https://github.com/FinHubSA/AK-PDF-Scraper">
 				<Icon name="mdi:github" width="48px" height="48px" />
 			</a>
-			<Button href="/get-started">Get Started</Button>
+			<AdjustableButton href="/get-started">Get Started</AdjustableButton>
 		</div>
 	</Header>
 	<div id="page">

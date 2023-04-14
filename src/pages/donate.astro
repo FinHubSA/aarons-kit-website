@@ -6,6 +6,8 @@
         ThreeColumnTextSection,
         TextSection,
     } from '@littlesticks/odyssey-theme-components';
+    import RightBanner from '../components/widgets/right-banner.astro';
+    import LeftBanner from '../components/widgets/left-banner.astro';
     import Layout from '../layouts/Page.astro';
     import TextAndImageHero from '../components/sections/heros/TextAndImageHero.astro';
     import '../styles/spinner.css';
@@ -195,12 +197,11 @@
         <div>
             <h3><a id="algorand_address">Making a donation: Smart contract information</a></h3>
             <p>To make an ALGO donation you can use our smart contract address:</p>
-            <p><b>ZH6QHCFO4UKUHDKFMTJDAQDMEN<br class="hidden-ss">WOFRKAKQCOC4RWBE54MJKCOBX<br
-                        class="hidden-ss">CPO6OHE</b></p>
+            <p class="wallet-address">ZH6QHCFO4UKUHDKFMTJDAQDMENWOFRKAKQCOC4RWBE54MJKCOBXCPO6OHE</p>
 
 
             <p>Or simply scan the below QR code with your Algorand wallet (e.g. Pera Wallet):</p>
-            <img src="/assets/images/donate/SmartContractQR.jpeg" alt="Smart Contract QR code" id="home-hero-image"
+            <img src="/assets/images/donate/SmartContractQR_transparent.png" alt="Smart Contract QR code" id="home-hero-image"
                 class="center-img" />
             <br>
             <p>
@@ -214,9 +215,53 @@
     </CtaCardSection>
     <TextSection>
         <h3 style="text-align:center">Learn more: the donation process</h3>
-        <span class="img-container">
-            <img src="/assets/images/donate/HowThisWorks1.svg" alt="How this works" loading="lazy" />
-        </span>
+        
+            <div class="infographic">
+                <div class="banner-holder">
+                    <LeftBanner>
+                        <span slot="banner_text">Contributors scrape papers using our CLI tool while having an Algorand address linked.</span>
+                        <div slot="banner_icon">1</div> 
+                    </LeftBanner>
+                </div>
+                <div class="banner-helper-image">
+                    <img  src="/assets/images/donate/HowItWorks1.svg" alt="how this works 1" /> 
+                </div>
+                 
+            </div>
+            <div class="infographic">
+                <div class="banner-helper-image">
+                    <img src="/assets/images/donate/HowItWorks2.svg" alt="how this works 2" />  
+                </div>
+                <div class="banner-holder">
+                    <RightBanner>
+                        <span slot="banner_text">Donors donate ALGO (cryptocurrency) to an Algorand smart contract that we have created.</span>
+                        <div slot="banner_icon">2</div> 
+                    </RightBanner>
+                </div>
+            </div>
+            <div class="infographic">
+                <div class="banner-holder">
+                    <LeftBanner>
+                        <span slot="banner_text">At 00:00 AM every Sunday, the smart contract distributes the donations to the contributors <span style="text-decoration-line: underline;">IF</span> the current donations are above a threshold of 1 ALGO.</span>
+                        <div slot="banner_icon">3</div>  
+                    </LeftBanner>
+                </div>
+                <div class="banner-helper-image">
+                    <img src="/assets/images/donate/HowItWorks3.svg" alt="how this works 3" />
+                </div>
+            </div>
+        
+            <div class="infographic">
+                <div class="banner-helper-image">
+                    <img src="/assets/images/donate/HowItWorks4.svg" alt="how this works 4" />
+                </div>
+                <div class="banner-holder">
+                    <RightBanner>
+                        <span slot="banner_text">The amount received by each contributor per distribution cycle is directly proportional to the number of papers they have scraped.</span>
+                        <div slot="banner_icon">4</div> 
+                    </RightBanner>
+                </div>
+            </div>
     </TextSection>
 
     <TextAndImageHero reversed>
@@ -239,7 +284,7 @@
                 class="astro-426S6YDN">
         </picture>
     </TextAndImageHero>
-
+   
 
     <TextAndImageHero reversed>
         <div slot="text-container">
@@ -282,7 +327,7 @@
             *We are in the process of testing our scraping tool and are looking for anyone with JSTOR access to assist. If you would like to help, please sign up <a href ="https://docs.google.com/forms/d/e/1FAIpQLSetzV9tRcIGahJiUHc-DMy6xmNtG0mTs_R7WTrL5mRMDH2eYA/viewform" target="_blank">here</a>.
         </h5>
     </TextSection>
-
+   
 </Layout>
 
 <script is:inline>
@@ -381,8 +426,23 @@
         /* max-width: var(--container-max-width-narrow); */
         display: flex;
         padding-top: 0px;
+        border-radius: 100%;
     }
-
+    .infographic{
+        display: flex;
+        margin: 0.15rem auto;
+        align-items: center;
+        column-gap: 0.5rem;
+    }
+    .banner-holder {
+        flex-grow: 2;
+    }
+    .banner-helper-image {
+        flex-grow: 1;
+        margin: -1.5rem 0;
+        z-index: 100;
+        max-width: 256px;
+    }
     .center-button {
         display: flex;
         justify-content: center;
@@ -402,9 +462,17 @@
         height: auto;
     }
 
+    .wallet-address {
+        overflow-wrap: anywhere;
+        font-weight: bold;
+    }
+
     @media (min-width: 700px) {
         .hidden-ss {
             display: none !important;
+        }
+        .banner-helper-image {
+            margin: -1.5rem 2rem;
         }
     }
 
@@ -423,6 +491,8 @@
             justify-content: space-between;
             width: 100%;
         }
+        .banner-helper-image {
+        }
     }
 
     /* For Tablets */
@@ -432,6 +502,10 @@
             justify-content: space-between;
             width: 100%;
         }
+        .banner-helper-image {
+            margin: -1.5rem 1rem;
+        }
+        
     }
 
     .align-stats {
