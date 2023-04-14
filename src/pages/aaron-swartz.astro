@@ -4,6 +4,7 @@ import {
 	TextSection,
 	CustomerQuoteSection,
 	YouTubeEmbedSection,
+	YouTubeEmbed,
 } from '@littlesticks/odyssey-theme-components';
 import Layout from '../layouts/Page.astro';
 
@@ -186,10 +187,13 @@ const seo = {
 		</section>
 	</Container>
 
-	<TextSection class="img_border">
+	<TextSection>
 		<h2 style="text-align:center;">Watch the full Aaron Swartz Documentary</h2>
-		<YouTubeEmbedSection rounded url="https://www.youtube.com/watch?v=9vz06QO3UkQ"></YouTubeEmbedSection>	
+		<section class="youtube-embed__section">
+			<YouTubeEmbed url="https://www.youtube.com/watch?v=9vz06QO3UkQ" rounded />
+		</section>
 	</TextSection>
+	
 
 </Layout>
 
@@ -210,6 +214,9 @@ const seo = {
 	}
 	.sticky-text-image__section :global(img) {
 		border-radius: var(--theme-shape-radius);
+	}
+	.youtube-embed-section {
+		border-radius: 3rem;
 	}
 	@media (max-width: 992px) {
 		.sticky-text-image__section {

@@ -6,6 +6,7 @@ import {
 	TextSection,
 } from '@littlesticks/odyssey-theme-components';
 import Layout from '../layouts/Page.astro';
+import FourSection from '../components/widgets/four-section.astro';
 
 const seo = {
 	title: "Aaron's Kit | About",
@@ -40,7 +41,35 @@ const seo = {
 			loading="lazy"
 			/>
 		</span>
-	
+		<FourSection>
+			<div slot="title_icon_1">1</div> 
+			<div slot="info_1">An Academic does research and finishes a paper</div>
+			<ul slot="details_1">
+				<li>The research is funded by grants and subsidies from universities, governments and corporations.</li>
+				<li>The Academic does not get remunerated for their work.</li>
+			</ul>
+			<div slot="title_icon_2">2</div> 
+			<div slot="info_2">The Academic submits paper to the Academic Journal</div>
+			<ul slot="details_2">
+				<li>The Academic Journals facilitate the editing, reviewing and re-submission procedure.</li>
+				<li>The academic editors usually only earn symbolic pay, and most of the quality control and fact-checking is done through peer review, which is free.</li>
+			</ul>
+			<div slot="title_icon_3">3</div> 
+			<div slot="info_3">The Paper is sent to a for-profit publisher</div>
+			<ul slot="details_3">
+				<li>Publishers, like Elsevier and Springer Science print and distribute the journals.</li>
+				<li>They then charge universities hefty subscription fees to grant access to the research papers they publish.</li>
+				<li>Because these publishers do not incur any large costs they are able to maintain extraordinarily high profit margins.</li>
+			</ul>
+			<div slot="title_icon_4">4</div> 
+			<div slot="info_4">JSTOR purchases rights to paper after a number of years</div>
+			<ul slot="details_4">
+				<li>After a period of time called a moving wall, the publishing houses sell the rights to their journal issues to academic search engines like JSTOR.</li>
+				<li>To recoup infrastructure, energy and content costs, JSTOR sells institutional subscriptions at enormous costs</li>
+				<li>Universities and institutions now have to pay outrageously high subscription fees, just to access the research articles that arguably were funded and facilitated by them in the first place.</li>
+			</ul>
+			
+		</FourSection>
 	</TextSection>
 
 
