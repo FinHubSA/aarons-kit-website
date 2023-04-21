@@ -151,10 +151,22 @@ index 07da3aa..4572689 100644
    }
  </style>
 diff --git a/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro b/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro
-index 48eedf4..039ab6b 100644
+index 48eedf4..b749b48 100644
 --- a/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro
 +++ b/node_modules/@littlesticks/odyssey-theme-components/core/Header.astro
-@@ -74,7 +74,7 @@ const { navData, rightMenu } = Astro.props;
+@@ -61,9 +61,11 @@ const { navData, rightMenu } = Astro.props;
+           {navData.map(navItem => (
+             (<li><a href={navItem.slug} >{navItem.title}</a></li>)
+           ))}
++          <li><slot name="icon-nav"/></li>
+         </ul>
+       </nav>}
+     </slot>
++
+   </div>
+   <div class="header-action-item__container">
+     <slot name="action-item">
+@@ -74,7 +76,7 @@ const { navData, rightMenu } = Astro.props;
  <style>
    header {
      width: 100%;
@@ -163,7 +175,7 @@ index 48eedf4..039ab6b 100644
      display: flex;
      justify-content: space-between;
      align-items: center;
-@@ -128,7 +128,7 @@ const { navData, rightMenu } = Astro.props;
+@@ -128,7 +130,7 @@ const { navData, rightMenu } = Astro.props;
    nav ul li a:hover {
      opacity: 1;
    }
@@ -172,7 +184,7 @@ index 48eedf4..039ab6b 100644
      #menuButton {
        display: block;  
        z-index: 100;
-@@ -157,4 +157,11 @@ const { navData, rightMenu } = Astro.props;
+@@ -157,4 +159,11 @@ const { navData, rightMenu } = Astro.props;
         margin-bottom: 1rem;
       }
    }
@@ -186,7 +198,7 @@ index 48eedf4..039ab6b 100644
  </style>
 \ No newline at end of file
 diff --git a/node_modules/@littlesticks/odyssey-theme-components/sections/ThreeColumnTextSection.astro b/node_modules/@littlesticks/odyssey-theme-components/sections/ThreeColumnTextSection.astro
-index 17c1a43..af80a62 100644
+index 17c1a43..58853c6 100644
 --- a/node_modules/@littlesticks/odyssey-theme-components/sections/ThreeColumnTextSection.astro
 +++ b/node_modules/@littlesticks/odyssey-theme-components/sections/ThreeColumnTextSection.astro
 @@ -39,14 +39,19 @@ import Container from '../core/Container.astro';
@@ -207,7 +219,7 @@ index 17c1a43..af80a62 100644
      .three-col-text__section {
        --column-count: 1;
 +      --column-width: calc(100% / var(--column-count));
-+      min-width: 280px;
++      min-width: 260px;
      }
    }
  </style>

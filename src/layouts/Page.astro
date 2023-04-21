@@ -18,6 +18,9 @@ export interface Props {
 
 <Layout {seo}>
 	<Header rightMenu navData={nav} slot="header">
+		<a slot="icon-nav" class="github-dropdown" href="https://github.com/FinHubSA/AK-PDF-Scraper">
+			<Icon name="mdi:github" width="48px" height="48px" />
+		</a>
 		<span slot="logo">
 			<Logo />
 		</span>
@@ -47,10 +50,18 @@ export interface Props {
 	.github {
 		display: flex;
 	}
-
+	.github-dropdown {
+		display: none;
+	}
 	@media screen and (max-width: 360px) {
 		.header-actions {
 			gap: 2px;
+		}
+		.github {
+			display:none;
+		}
+		.github-dropdown {
+			display: flex;
 		}
 	}
 </style>

@@ -7,7 +7,7 @@ import {
 } from '@littlesticks/odyssey-theme-components';
 import Layout from '../layouts/Page.astro';
 import FourSection from '../components/widgets/four-section.astro';
-
+import FourSectionExpansion from '../components/widgets/four-section-expansion.astro';
 const seo = {
 	title: "Aaron's Kit | About",
 	description: 'Learn about us and our journey.',
@@ -25,51 +25,78 @@ const seo = {
 	<TextSection>
 		<span>
 			<img
-			src="/assets/images/about/PublishingLifecycle.svg"
-			alt="Number One"
-			loading="lazy"
-			class="center-number"
+			src= "/assets/images/about/PublishingLifecycle.svg"
+			alt= "Number One"
+			loading= "lazy"
+			class= "center-number"
 			/>
 		</span>
 		<br>
 		<h3 style="text-align:center;">The Academic Publishing Lifecycle</h3>
-
-		<span class="img-container">
-			<img
-			src="/assets/images/about/PublishingSystem.svg"
-			alt="The Academic Publishing Lifecycle"
-			loading="lazy"
-			/>
-		</span>
-		<FourSection>
-			<div slot="title_icon_1">1</div> 
-			<div slot="info_1">An Academic does research and finishes a paper</div>
-			<ul slot="details_1">
-				<li>The research is funded by grants and subsidies from universities, governments and corporations.</li>
-				<li>The Academic does not get remunerated for their work.</li>
-			</ul>
-			<div slot="title_icon_2">2</div> 
-			<div slot="info_2">The Academic submits paper to the Academic Journal</div>
-			<ul slot="details_2">
-				<li>The Academic Journals facilitate the editing, reviewing and re-submission procedure.</li>
-				<li>The academic editors usually only earn symbolic pay, and most of the quality control and fact-checking is done through peer review, which is free.</li>
-			</ul>
-			<div slot="title_icon_3">3</div> 
-			<div slot="info_3">The Paper is sent to a for-profit publisher</div>
-			<ul slot="details_3">
-				<li>Publishers, like Elsevier and Springer Science print and distribute the journals.</li>
-				<li>They then charge universities hefty subscription fees to grant access to the research papers they publish.</li>
-				<li>Because these publishers do not incur any large costs they are able to maintain extraordinarily high profit margins.</li>
-			</ul>
-			<div slot="title_icon_4">4</div> 
-			<div slot="info_4">JSTOR purchases rights to paper after a number of years</div>
-			<ul slot="details_4">
-				<li>After a period of time called a moving wall, the publishing houses sell the rights to their journal issues to academic search engines like JSTOR.</li>
-				<li>To recoup infrastructure, energy and content costs, JSTOR sells institutional subscriptions at enormous costs</li>
-				<li>Universities and institutions now have to pay outrageously high subscription fees, just to access the research articles that arguably were funded and facilitated by them in the first place.</li>
-			</ul>
-			
-		</FourSection>
+		<div id="fs_big">
+			<FourSection>
+				<div slot="title_icon_1">1</div> 
+				<div slot="info_1">An Academic does research and finishes a paper</div>
+				<ul slot="details_1">
+					<li>The research is funded by grants and subsidies from universities, governments and corporations.</li>
+					<li>The Academic does not get remunerated for their work.</li>
+				</ul>
+				<div slot="title_icon_2">2</div> 
+				<div slot="info_2">The Academic submits paper to the Academic Journal</div>
+				<ul slot="details_2">
+					<li>The Academic Journals facilitate the editing, reviewing and re-submission procedure.</li>
+					<li>The academic editors usually only earn symbolic pay, and most of the quality control and fact-checking is done through peer review, which is free.</li>
+				</ul>
+				<div slot="title_icon_3">3</div> 
+				<div slot="info_3">The Paper is sent to a for-profit publisher</div>
+				<ul slot="details_3">
+					<li>Publishers, like Elsevier and Springer Science print and distribute the journals.</li>
+					<li>They then charge universities hefty subscription fees to grant access to the research papers they publish.</li>
+					<li>Because these publishers do not incur any large costs they are able to maintain extraordinarily high profit margins.</li>
+				</ul>
+				<div slot="title_icon_4">4</div> 
+				<div slot="info_4">JSTOR purchases rights to paper after a number of years</div>
+				<ul slot="details_4">
+					<li>After a period of time called a moving wall, the publishing houses sell the rights to their journal issues to academic search engines like JSTOR.</li>
+					<li>To recoup infrastructure, energy and content costs, JSTOR sells institutional subscriptions at enormous costs</li>
+					<li>Universities and institutions now have to pay outrageously high subscription fees, just to access the research articles that arguably were funded and facilitated by them in the first place.</li>
+				</ul>
+				
+			</FourSection>
+		</div>
+		<div id="fs_small">
+			<FourSectionExpansion>
+				<div slot="title_icon_1">1</div> 
+				<div slot="info_1">An Academic does research and finishes a paper</div>
+				<ul slot="details_1">
+					<li>The research is funded by grants and subsidies from universities, governments and corporations.</li>
+					<li>The Academic does not get remunerated for their work.</li>
+				</ul>
+				<div slot="title_icon_2">2</div> 
+				<div slot="info_2">The Academic submits paper to the Academic Journal</div>
+				<ul slot="details_2">
+					<li>The Academic Journals facilitate the editing, reviewing and re-submission procedure.</li>
+					<li>The academic editors usually only earn symbolic pay, and most of the quality control and fact-checking is done through peer review, which is free.</li>
+				</ul>
+				<div slot="title_icon_3">3</div> 
+				<div slot="info_3">The Paper is sent to a for-profit publisher</div>
+				<ul slot="details_3">
+					<li>Publishers, like Elsevier and Springer Science print and distribute the journals.</li>
+					<li>They then charge universities hefty subscription fees to grant access to the research papers they publish.</li>
+					<li>Because these publishers do not incur any large costs they are able to maintain extraordinarily high profit margins.</li>
+				</ul>
+				<div slot="title_icon_4">4</div> 
+				<div slot="info_4">JSTOR purchases rights to paper after a number of years</div>
+				<ul slot="details_4">
+					<li>After a period of time called a moving wall, the publishing houses sell the rights to their journal issues to academic search engines like JSTOR.</li>
+					<li>To recoup infrastructure, energy and content costs, JSTOR sells institutional subscriptions at enormous costs</li>
+					<li>Universities and institutions now have to pay outrageously high subscription fees, just to access the research articles that arguably were funded and facilitated by them in the first place.</li>
+				</ul>
+				
+			</FourSectionExpansion>
+		</div>
+		
+		
 	</TextSection>
 
 
@@ -118,14 +145,50 @@ const seo = {
 			number of university library budgets were unable to keep up with rising journal prices. Overall, the ratio 
 			of journal expenditures to total library materials expenditures climbed from 53% in 1986 to 73% in 2011, 
 			with expenditures on other categories of resources, such as monographs, falling by 21%. 
-			<span class="img-container">
-				<img
-				src="/assets/images/about/LibraryExpenditureGraph.svg"
-				alt="US University Library Expenditure Graph"
-				loading="lazy"
-				class="center-number"
-				/>	
-			</span>
+			
+			<div class="barchart-holder">
+				<div id="expend_title_holder">
+					<div class="graph-heading">Distribution of expenditures in academic materials budgets in the United States</div>
+					<div id="expend_legend">
+						<span><span class="dot1"></span> 2010</span>
+						<span><span class="dot2"></span> 2013</span>
+						<span><span class="dot3"></span> 2018</span>
+					</div>
+				</div>
+				<div class="bars_holder">
+					<div class="axis">
+						<span>75%</span>
+						<span>50%</span>
+						<span>25%</span>
+						<span>0%</span>
+					</div>
+					<span class="img-holder">
+						<span class="lib_img-container">
+							<img
+							class="lib_img_1"
+							src="/assets/images/about/LibraryExpenditureBars_h.svg"
+							alt="US University Library Expenditure Graph"
+							loading="lazy"
+							/>	
+							<img
+							class="lib_img_2"
+							src="/assets/images/about/LibraryExpenditureBars_v.svg"
+							alt="US University Library Expenditure Graph"
+							loading="lazy"
+							/>	
+						</span>
+						
+						<div class="labels">
+							<span id="bar1">Digital journals and databases</span>
+							<span id="bar2">Print books</span>
+							<span id="bar3">E-books</span>
+							<span id="bar4">Print journals</span>
+							<span id="bar5">All other items</span>
+						</div>
+					</span>
+				</div>
+			</div>
+		<br/>
 		</p>
 		<h4 style="text-align:center;">The Big Deal</h4>
 		<p style="text-align:justify" class="margin-p">
@@ -160,7 +223,6 @@ const seo = {
 		</p>
 	
 	</TextSection>
-
 	<TextSection>
 		<img
 		src="/assets/images/about/OpenAccess.svg"
@@ -247,7 +309,7 @@ const seo = {
 </Layout>
 
 <style>
-	.img-container {
+	.img-container, .lib_img-container {
 		display: flex;
 		margin: 0 auto;
 		padding-top: 0px
@@ -269,4 +331,198 @@ const seo = {
 		margin-right: 2%;
   		margin-left: 2%;
 	}
+	.graph-heading {
+		font-size: 1.5rem;
+		font-family:var(--theme-font-family-serif);
+	}
+	.bars_holder {
+		display: flex; 
+		column-gap:0; 
+		justify-content: center;
+	}
+	.img-holder {
+		display: flex; 
+		flex-direction: column; 
+		align-items: flex-start; 
+	}
+	.axis {
+		display: flex; 
+		flex-direction:column; 
+		justify-content: space-between; 
+		text-align:end;
+	}
+	#bar1, #bar2, #bar3, #bar4, #bar5 {
+		transform-origin: 0 0;
+		transform: rotate(330deg);
+		max-width: min-content;
+	}
+	.barchart-holder {
+		display: flex;
+		margin: auto 2%;
+		padding-top: 0px;
+		flex-direction: column; 
+		padding-bottom: 10rem; 
+		max-width: 900px;
+	}
+	#fs_big {
+		display: block;
+	}
+	#fs_small {
+		display: none;
+	}
+	.dot1, .dot2, .dot3 {
+		height: 1rem;
+		width: 1rem;
+		background-color: #193D2A;
+		border-radius: 50%;
+		display: inline-block;
+		margin-bottom: -0.25rem;
+	}
+	.dot2 {
+		background-color: #193D2A;
+	}
+	.dot3 {
+		background-color: #9BBBA5;
+	}
+	#expend_legend {
+		display: flex;
+		flex-direction: column;
+		min-width: 70px; 
+		max-width: 8rem;
+		margin: 0 1rem;
+
+	}
+	#expend_title_holder {
+		display: flex;
+		margin: auto;
+		justify-content: center;
+	}
+	.lib-img_1, .lib_img_2{
+		margin: 0 auto;
+		padding-top: 0px;
+		flex-grow:1;
+	}
+	.lib_img_2 {
+		display: none;
+	}
+	.lib-img_1 {
+		display: flex;
+	}
+	.labels {
+		display: flex; 
+		justify-content: center; 
+		align-self: center ;
+		text-align: center;
+		column-gap: 30%; 
+		padding-left:0rem;
+		margin: 1.5rem auto auto;
+		max-width: 1080px;
+	}
+	@media screen and (max-width: 900px) {
+		#fs_big {
+			display: none;
+		}
+		#fs_small {
+			display: block;
+		}
+
+    }
+	@media screen and (max-width: 768px) {
+		.lib_img_1 {
+			display: none;
+		}
+		.lib_img_2 {
+			display: flex;
+			min-width: 260px;
+			width: 90vw;
+		}
+		.lib_img-container {
+			margin: 0;
+		}
+		.img-holder {
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+			min-height: 75vh;
+			height: 100%
+		}
+		.labels {
+			flex-direction: column;
+			align-items: flex-end;
+			position:relative;
+			margin-left: 0;
+			margin-right: 0;
+			margin-top: 0;
+		}
+		.axis {
+			padding-top: 1rem;
+			font-size: 3.5vw;
+			flex-direction: row-reverse;
+			min-width:260px;
+			width: 100%;
+		}
+		.graph-heading {
+			font-size: 1.25rem;
+		}
+		#bar1, #bar2, #bar3, #bar4, #bar5 {
+			position: absolute;
+			transform-origin: 0 0;
+			transform: rotate(360deg);
+			max-width: min-content;
+			text-align: right;
+			font-size: 3.5vw;
+		}
+		#bar1 {
+			top: 0.5vw;
+		}
+		#bar2 {
+			top:35vw;
+		}
+		#bar3 {
+			top: 65vw;
+		}
+		#bar4 {
+			top: 95vw;
+		}
+		#bar5 {
+			top:120vw;
+		}
+		.bars_holder {
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			width: 70vw;
+			margin-left:16vw;
+		}
+		.barchart-holder {
+			padding-bottom: 0;
+		}
+	}
+	@media screen and (max-width: 414px) {
+		#expend_legend {
+			margin: 0;
+			font-size: 0.75rem;
+		}
+		#expend_title_holder {
+			align-items: center;
+		}
+		.axis{
+			font-size: 0.75rem;
+		}
+		.graph-heading {
+			font-size: 1rem;
+		}
+		.dot1, .dot2, .dot3 {
+			height: 0.75rem;
+			width: 0.75rem;
+			margin-bottom: 0rem;
+		}
+		.axis, .img-holder, .lib_img_2 {
+			min-width: 200px;
+			width: 100%;
+		}
+		#bar1, #bar2, #bar3, #bar4, #bar5 {
+			font-size: 0.75rem;
+		}
+	}
+
 </style>
