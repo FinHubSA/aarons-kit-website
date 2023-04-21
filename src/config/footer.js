@@ -1,7 +1,7 @@
 export const footerSocials = [
 	{
 		name: 'Github',
-		url: 'https://github.com/FinHubSA/AK-PDF-Scraper',
+		url: 'https://github.com/AaronsKit/Aarons_Toolkit',
 		icon: 'mdi:github',
 	},
 ];
@@ -46,5 +46,5 @@ export const footerLists = [
 			},
 		],
 	},
-	
+
 ];
