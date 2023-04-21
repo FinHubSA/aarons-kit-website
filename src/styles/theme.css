@@ -33,7 +33,7 @@
 	--theme-grid-gap: 1rem;
 	--container-max-width: 1440px;
 	--container-max-width-narrow: 960px;
-	--container-padding: 0 1rem;
+	--container-padding: 0 3rem;
 
 	--theme-blog-post-header-width: 1200px;
 
@@ -43,4 +43,9 @@
 	--theme-font-family-sans: 'Lato', -apple-system, BlinkMacSystemFont,
 		sans-serif;
 	--them-font-family-sans-serif: GT America Standard, Helvetica, Helvetica Neue, Arial, Segoe UI, Roboto, Droid Sans, sans-serif;
+	
+	@media screen and (max-width: 540px){
+		--container-padding: 0 1rem;
+	
+	}
 }

@@ -1,5 +1,5 @@
 ---
-const { href, unelevated, outlined, customIcon, onPrimary, newTab } =
+const { href, unelevated, outlined, customIcon, onPrimary, newTab, value } =
   Astro.props;
 
 const Tag = href ? 'a' : 'button';
@@ -11,7 +11,8 @@ const Tag = href ? 'a' : 'button';
   } ${onPrimary && `btn2--on-primary`}`}
   href={href}
   target={`${newTab ? '_blank': ``}`}
-  rel={`${newTab ? 'noopener noreferrer' : ``}`}
+  rel={`${newTab ? 'noopener noreferrer' : ``}`} 
+  value={value}
 >
   <slot />
   {customIcon && <span class="custom-icon__span"><slot name="icon">custom_icon</slot></span>}
